@@ -124,7 +124,6 @@ public final class ToStringGenerator implements ILangGenerator {
 
         ICompilationUnit cu = objectClass.getCompilationUnit();
         IEditorPart javaEditor = JavaUI.openInEditor(cu);
-
         boolean isCacheable = PreferenceUtils.getCacheToString()
                 && JavaUtils.areAllFinalFields(checkedFields);
 

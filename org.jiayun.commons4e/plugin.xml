@@ -1,71 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            objectClass="org.eclipse.jdt.core.IType"
-            id="org.jiayun.commons4e.lang.LangActions">
-         <menu
-               label="Commons4E Lang"
-               path="additions"
-               id="langMenu">
-            <separator name="langGroup"/>
-         </menu>
-         <action
-               label="Generate CompareTo Method..."
-               class="org.jiayun.commons4e.internal.lang.actions.GenerateAction"
-               menubarPath="langMenu/langGroup"
-               id="org.jiayun.commons4e.lang.actions.GenerateCompareToAction"/>
-         <action
-               label="Generate ToString Method..."
-               class="org.jiayun.commons4e.internal.lang.actions.GenerateAction"
-               menubarPath="langMenu/langGroup"
-               id="org.jiayun.commons4e.lang.actions.GenerateToStringAction"/>
-         <action
-               label="Generate Equals and HashCode..."
-               class="org.jiayun.commons4e.internal.lang.actions.GenerateAction"
-               menubarPath="langMenu/langGroup"
-               id="org.jiayun.commons4e.lang.actions.GenerateEqualsHashCodeAction"/>
-      </objectContribution>
-      <viewerContribution
-            targetID="#CompilationUnitEditorContext"
-            id="org.jiayun.commons4e.lang.LangActions">
-         <menu
-               label="Commons4E Lang"
-               path="additions"
-               id="langMenu">
-            <separator name="langGroup"/>
-         </menu>
-         <action
-               label="Generate CompareTo Method..."
-               class="org.jiayun.commons4e.internal.lang.actions.ViewerContributionGenerateAction"
-               menubarPath="langMenu/langGroup"
-               id="org.jiayun.commons4e.lang.actions.GenerateCompareToAction"/>
-         <action
-               label="Generate ToString Method..."
-               class="org.jiayun.commons4e.internal.lang.actions.ViewerContributionGenerateAction"
-               menubarPath="langMenu/langGroup"
-               id="org.jiayun.commons4e.lang.actions.GenerateToStringAction"/>
-         <action
-               label="Generate Equals and HashCode..."
-               class="org.jiayun.commons4e.internal.lang.actions.ViewerContributionGenerateAction"
-               menubarPath="langMenu/langGroup"
-               id="org.jiayun.commons4e.lang.actions.GenerateEqualsHashCodeAction"/>
-      </viewerContribution>
+ 	
+ 	<extension
+         point="org.eclipse.ui.commands">
+	 <command
+        defaultHandler="org.jiayun.commons4e.handlers.SampleHandler"
+        id="org.jiayun.commons4e.ui.quickMenu"
+        name="Show  Quick Menu">
+      </command>
+	</extension>
+	<extension point="org.eclipse.ui.bindings">
+	  <key
+	    commandId="org.jiayun.commons4e.ui.quickMenu"
+	    schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	    sequence="M2+M3+K">
+	 </key>
    </extension>
-   <extension
-         point="org.eclipse.ui.preferencePages">
-      <page
-            class="org.jiayun.commons4e.internal.ui.preferences.Commons4eBasePreferencePage"
-            category="org.eclipse.jdt.ui.preferences.JavaBasePreferencePage"
-            name="Commons4E"
-            id="org.jiayun.commons4e.ui.preferences.Commons4eBasePreferencePage"/>
-   </extension>
-   <extension
-         point="org.eclipse.core.runtime.preferences">
-      <initializer class="org.jiayun.commons4e.Commons4ePreferenceInitializer"/>
-   </extension>
-
+   
+   
+   
 </plugin>

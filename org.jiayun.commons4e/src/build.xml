@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<project default="main" basedir=".">
+ 
+ <target name="main" >
+  	  
+  	  
+  	  <unzip dest="C:\Users\liquancheng\.p2\pool\plugins\org.jiayun.commons4e_1.1.11" 
+  	  	
+  	  	src="D:\work\devTool\eclipse-plugin\plugins\org.jiayun.commons4e_1.1.11.jar">
+  	  
+  	  
+  	  </unzip>
+  	  
+  	  
+ </target>
+  
+</project>
