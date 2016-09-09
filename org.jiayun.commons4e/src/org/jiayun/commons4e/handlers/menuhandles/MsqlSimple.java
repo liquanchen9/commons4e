@@ -88,7 +88,7 @@ public class MsqlSimple extends MenuItemHandler {
 				sql.append(NameUtils.camelCase(col, false)).append(" = #{").append(NameUtils.camelCase(col, false)).append("}").append(",");
 			}
 			sql.deleteCharAt(sql.length()-1);
-			sql.append(tableName).append(" where id = #{id} ");
+			sql.append(" where id = #{id} ");
 			break;
 		case 3://	comboForCURD.add("select");
 			sql.append("select  ");
