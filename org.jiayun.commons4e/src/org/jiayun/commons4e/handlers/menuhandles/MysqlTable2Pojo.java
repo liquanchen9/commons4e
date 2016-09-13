@@ -66,7 +66,7 @@ public class MysqlTable2Pojo extends MenuItemHandler {
 		javaCode.append("package ").append(packagFragment.getElementName()).append(";\r\n")
 				.append("import java.io.Serializable;\r\n")
 				.append("public class ").append(tableName).append(" implements Serializable{\r\n")
-				.append("\tprivate static final long serialVersionUID = 1L\r\n");
+				.append("\tprivate static final long serialVersionUID = 1L;\r\n");
 		for (Entry<String, String> entry : fields.entrySet()) {
 			javaCode.append("\tprivate ").append(entry.getValue()).append(" ").append(camelCase(entry.getKey(), false)).append(";\r\n");
 		}
@@ -74,10 +74,10 @@ public class MysqlTable2Pojo extends MenuItemHandler {
 		for (Entry<String, String> entry : fields.entrySet()) {
 			javaCode.append("\tpublic ").append(entry.getValue()).append(" get").append(camelCase(entry.getKey(), true)).append("() {\r\n");
 			javaCode.append("\t\treturn ").append(camelCase(entry.getKey(), false)).append(";\r\n");
-			javaCode.append("\t}").append(";\r\n");
+			javaCode.append("\t}").append("\r\n");
 			javaCode.append("\tpublic void set").append(camelCase(entry.getKey(), true)).append("(").append(entry.getValue()).append(" ").append(camelCase(entry.getKey(), false)).append(") {\r\n");
 			javaCode.append("\t\tthis.").append(camelCase(entry.getKey(), false)).append("=").append(camelCase(entry.getKey(), false)).append(";\r\n");
-			javaCode.append("\t}").append(";\r\n");
+			javaCode.append("\t}").append("\r\n");
 		}
 		javaCode.append("}");
 		packagFragment.createCompilationUnit(tableName+".java", javaCode.toString(), false, null);

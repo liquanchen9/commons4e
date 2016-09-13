@@ -1,7 +1,7 @@
 //$Id$
 package org.jiayun.commons4e.internal.ui.preferences;
 
-import org.eclipse.core.runtime.Preferences;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.jiayun.commons4e.Commons4ePlugin;
 
 /**
@@ -29,8 +29,8 @@ public class PreferenceConstants {
     public static final String USE_GETTERS_INSTEAD_OF_FIELDS = "useGettersInsteadOfFields";
 
     public static void initializeDefaultValues() {
-        Preferences preferences = Commons4ePlugin.getDefault()
-                .getPluginPreferences();
+    	IPreferenceStore preferences = Commons4ePlugin.getDefault()
+                .getPreferenceStore();
         preferences.setDefault(CACHE_HASHCODE, true);
         preferences.setDefault(HASHCODE_CACHING_FIELD, "hashCode");
         preferences.setDefault(CACHE_TOSTRING, true);

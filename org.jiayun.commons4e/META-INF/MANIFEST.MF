@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-Name: Commons4E
-Bundle-SymbolicName: org.jiayun.commons4e2;singleton:=true
+Bundle-SymbolicName: org.jiayun.commons4e;singleton:=true
 Bundle-Version: 1.1.11
 Bundle-ClassPath: commons4e.jar,
  lib/mysql-connector-java-5.1.21.jar

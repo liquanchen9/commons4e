@@ -54,21 +54,21 @@ public class MsqlSimple extends MenuItemHandler {
 		case 0://comboForCURD.add("insert");
 			fields = (cols(getConnection(dt.ip, dt.username, dt.password), dt.tableNames));
 			sql.append("insert into ")
-			.append(tableName).append("( ");
+			.append(tableName).append("(\r\n ");
 			for (String col : fields.keySet()) {
 				if(col.equalsIgnoreCase("id")){
 					continue;
 				}
-				sql.append(col).append(",");
+				sql.append(col).append("\r\n,");
 			}
 			sql.deleteCharAt(sql.length()-1);
-			sql.append(") values (  " );
+			sql.append(") values ( \r\n " );
 			
 			for (String col : fields.keySet()) {
 				if(col.equalsIgnoreCase("id")){
 					continue;
 				}
-				sql.append("#{").append(NameUtils.camelCase(col, false)).append("}").append(",");
+				sql.append("#{").append(NameUtils.camelCase(col, false)).append("}").append("\r\n,");
 			}
 			sql.deleteCharAt(sql.length()-1);
 			sql.append(")");
@@ -79,13 +79,13 @@ public class MsqlSimple extends MenuItemHandler {
 			break;
 		case 2://	comboForCURD.add("update");
 			sql.append("update  ")
-			.append(tableName).append(" set  ");
+			.append(tableName).append(" set \r\n ");
 			fields = (cols(getConnection(dt.ip, dt.username, dt.password), dt.tableNames));
 			for (String col : fields.keySet()) {
 				if(col.equalsIgnoreCase("id")){
 					continue;
 				}
-				sql.append(NameUtils.camelCase(col, false)).append(" = #{").append(NameUtils.camelCase(col, false)).append("}").append(",");
+				sql.append((col)).append(" = #{").append(NameUtils.camelCase(col, false)).append("}").append("\r\n,");
 			}
 			sql.deleteCharAt(sql.length()-1);
 			sql.append(" where id = #{id} ");
