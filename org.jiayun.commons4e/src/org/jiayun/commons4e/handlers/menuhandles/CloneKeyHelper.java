@@ -22,19 +22,19 @@ public class CloneKeyHelper extends MenuItemHandler{
 
 	@Override
 	protected void onClick(SelectionEvent event) throws Throwable {
-		Thread.sleep(200);
+		Thread.sleep(100);
 		java.awt.Robot robot = new Robot();
 		robot.keyPress(KeyEvent.VK_ALT);
 		robot.keyRelease(KeyEvent.VK_ALT);
-		Thread.sleep(80);
+		Thread.sleep(50);
 		robot.keyPress(KeyEvent.VK_W);
-		Thread.sleep(80);
+		Thread.sleep(50);
 		robot.keyRelease(KeyEvent.VK_W);
 		robot.keyPress(KeyEvent.VK_E);
-		Thread.sleep(80);
+		Thread.sleep(50);
 		robot.keyRelease(KeyEvent.VK_E);
 		robot.keyPress(KeyEvent.VK_E);
-		Thread.sleep(80);
+		Thread.sleep(50);
 		robot.keyRelease(KeyEvent.VK_E);
 		
 	}

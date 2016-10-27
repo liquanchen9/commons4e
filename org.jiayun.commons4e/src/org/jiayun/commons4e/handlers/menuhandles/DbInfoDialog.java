@@ -40,13 +40,16 @@ public class DbInfoDialog extends Dialog implements ModifyListener{
 		new Label(container, SWT.NORMAL).setText(Commons4ePlugin.getResourceString("dialog.username")); 
 		txtForUsername = new Text(container, SWT.BORDER);
 		txtForUsername.setText(defaultUsername);
+		txtForUsername.addModifyListener(this);
 		new Label(container, SWT.NORMAL).setText(Commons4ePlugin.getResourceString("dialog.password")); 
 		txtForPassword = new Text(container, SWT.BORDER | SWT.PASSWORD);
 		txtForPassword.setText(defaultPassword);
+		txtForPassword.addModifyListener(this);
 	 
 		new Label(container, SWT.NORMAL).setText(Commons4ePlugin.getResourceString("dialog.tableNames")); 
 		txtForTableNames = new Text(container, SWT.BORDER );
 		txtForTableNames.setText(defaultTableNames);
+		txtForTableNames.addModifyListener(this);
 		return container;
 	}
 	
