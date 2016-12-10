@@ -1,17 +1,21 @@
 <?xml version="1.0"?>
-<project default="main" basedir=".">
+<project default="main" basedir="./../">
  
  <target name="main" >
-  	  
-  	  
-  	  <unzip dest="C:\Users\liquancheng\.p2\pool\plugins\org.jiayun.commons4e_1.1.11" 
-  	  	
-  	  	src="D:\work\devTool\eclipse-plugin\plugins\org.jiayun.commons4e_1.1.11.jar">
-  	  
-  	  
-  	  </unzip>
-  	  
-  	  
+  	<mkdir dir="lib/mysql_tmp/"/>
+ 	<unzip dest="lib/mysql_tmp/" src="lib/mysql-connector-java-5.1.21.jar"></unzip>
+ 	<jar manifest="META-INF/MANIFEST.MF" destfile="C:\Users\liquancheng\.p2\pool\plugins\org.jiayun.commons4e_1.1.11.jar"
+ 								excludes=".svn/"	>
+		<fileset dir="${basedir}\bin" excludes=".svn/"></fileset>
+ 		<fileset dir="${basedir}\classes" excludes=".svn/"></fileset>
+ 		<fileset dir="${basedir}\lib\mysql_tmp" excludes=".svn/"></fileset>
+ 		<fileset dir="${basedir}" >
+ 			<include name="plugin.properties"/>
+ 			<include name="epl-v10.html"/>
+ 			<include name="plugin.xml"/>
+ 		</fileset>
+	</jar>
+ 	<delete dir="${basedir}/lib/mysql_tmp/"></delete>
  </target>
   
 </project>
