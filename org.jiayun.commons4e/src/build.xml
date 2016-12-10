@@ -6,7 +6,6 @@
  	<unzip dest="lib/mysql_tmp/" src="lib/mysql-connector-java-5.1.21.jar"></unzip>
  	<jar manifest="META-INF/MANIFEST.MF" destfile="C:\Users\liquancheng\.p2\pool\plugins\org.jiayun.commons4e_1.1.11.jar"
  								excludes=".svn/"	>
-		<fileset dir="${basedir}\bin" excludes=".svn/"></fileset>
  		<fileset dir="${basedir}\classes" excludes=".svn/"></fileset>
  		<fileset dir="${basedir}\lib\mysql_tmp" excludes=".svn/"></fileset>
  		<fileset dir="${basedir}" >
