@@ -1,7 +1,5 @@
 package org.jiayun.commons4e.handlers.menuhandles;
 
-import java.lang.reflect.Field;
-
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ParameterizedCommand;
@@ -23,7 +21,8 @@ public class CloneKeyHelper extends MenuItemHandler{
 	protected boolean init(ExecutionEvent event) throws Exception {
 		IWorkbenchWindow workbenchWindow = HandlerUtil.getActiveWorkbenchWindow(event);
 		handlerService = workbenchWindow.getService(IHandlerService.class);
-		newEditorCommand = workbenchWindow.getService(ICommandService.class).getCommand("org.eclipse.ui.window.newEditor");
+		newEditorCommand = workbenchWindow.getService(ICommandService.class)
+				.getCommand("org.eclipse.ui.window.newEditor");
 		return true;
 	}
 
@@ -39,16 +38,19 @@ public class CloneKeyHelper extends MenuItemHandler{
 		this.handlerService.executeCommand(ParameterizedCommand.generateCommand(newEditorCommand, null), ev);
 	}
 
-	private void copyFields(Object src, Object target) {
-		Field[] fields = src.getClass().getFields();
-		Class<? extends Object> tc = target.getClass();
-		for (Field field : fields) {
-			try {
-				tc.getField(field.getName()).set(target, field.get(src));
-			} catch (NoSuchFieldException e) {
-			} catch (SecurityException e) {
-			} catch (IllegalArgumentException e) {
-			} catch (IllegalAccessException e) {}
-		}
+	private void copyFields(SelectionEvent ev, Event event) {
+		event.display=ev.display;
+		event.widget=ev.widget;
+		event.detail=ev.detail;
+		event.item=ev.item;
+		event.x=ev.x;
+		event.y=ev.y;
+		event.width=ev.width;
+		event.height=ev.height;
+		event.time=ev.time;
+		event.stateMask=ev.stateMask;
+		event.text=ev.text;
+		event.doit=ev.doit;
+		event.data=ev.data;
 	}
 }

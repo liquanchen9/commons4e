@@ -1,11 +1,9 @@
 Manifest-Version: 1.0
-Bundle-Name: Commons4E
+Bundle-Name: %bundle.name
 Bundle-SymbolicName: org.jiayun.commons4e;singleton:=true
 Bundle-Version: 1.1.11
-Bundle-ClassPath: commons4e.jar,
- lib/mysql-connector-java-5.1.21.jar
 Bundle-Activator: org.jiayun.commons4e.Commons4ePlugin
-Bundle-Vendor: JiaYun
+Bundle-Vendor: %bundle.vendor
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,

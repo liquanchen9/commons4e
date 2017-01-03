@@ -4,7 +4,10 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -12,17 +15,19 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.jiayun.commons4e.Commons4ePlugin;
 
-public class DbInfoDialog extends Dialog implements ModifyListener{
+public class DbInfoDialog extends Dialog implements ModifyListener ,SelectionListener{
 	private Text txtForIP;
 	private Text txtForUsername;
 	private Text txtForPassword;
 	private Text txtForTableNames;
+	private Button btnForDaoService;
 	
 	public String ip;
 	public String username;
 	public String password;
 	public String tableNames;
-
+	public boolean createDaoService;
+	
 
 	protected DbInfoDialog(Shell parentShell) {
 		super(parentShell);
@@ -50,6 +55,10 @@ public class DbInfoDialog extends Dialog implements ModifyListener{
 		txtForTableNames = new Text(container, SWT.BORDER );
 		txtForTableNames.setText(defaultTableNames);
 		txtForTableNames.addModifyListener(this);
+		
+		new Label(container, SWT.NORMAL).setText(Commons4ePlugin.getResourceString("dialog.createDaoService")); 
+		btnForDaoService = new Button(container, SWT.CHECK);
+		btnForDaoService.addSelectionListener(this);
 		return container;
 	}
 	
@@ -79,4 +88,10 @@ public class DbInfoDialog extends Dialog implements ModifyListener{
 	private static String defaultUsername = "root";
 	private static String defaultPassword = "!Q@W#E4r5t6y";
 	private static String defaultTableNames = "sjtu_propagandist";
+
+
+	public void widgetDefaultSelected(SelectionEvent event) {}
+	public void widgetSelected(SelectionEvent event) {
+		createDaoService = true;
+	}
 }

@@ -60,7 +60,6 @@ public class JQueryGetterGenerator extends MenuItemHandler {
 			}
 			
 			if ( firstElement instanceof IType) {
-
                 IType selected = (IType) firstElement;
                 try {
                     if (selected.isClass() && !selected.isReadOnly()) {
